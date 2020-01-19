@@ -1,14 +1,42 @@
 const db = require('./connection');
 
-// LIST ALL EVENTS (Browse Events)
+// --- LIST ALL EVENTS (Browse Events)
 async function listEvents(){
-    const result = await db.any(`
+    const allEvents = await db.any(`
     select * from events`);
-    console.log(result);
-    return result;
+    console.log(allEvents); 
+    return allEvents;
 }
 
-// CREATE AN EVENT 
+// Format Events for User
+async function displayAllEvents() {
+    const allEvents = await listEvents();
+    for (event of allEvents) {
+        console.log(event.event_name);
+    }
+}
+
+
+
+
+
+// async function userLogin(username, password) {
+//     const theUser = await getByUsername(username);
+//     return {
+//         isUserValid: bcrypt.compareSync(password, theUser.password), 
+//         theUser
+//     }
+// };
+// async function getByUsername(username) {
+//     const theUser = await db.one(`
+//         select * from users where user_name=$1
+//     `, [username]);
+//     return theUser;
+// };
+
+
+
+// --- CREATE AN EVENT 
 // Step 1: Create Event Overview
     // Assigns event to user(creator) in events table
 async function createEvent(eventName, eventLocation, eventDate, eventTime, eventDescription, userID){
@@ -38,10 +66,11 @@ async function createTask(taskList,eventID){
     }
 }
 
-    
+// --- VIEW YOUR EVENTS
 
 
-// SIGN UP FOR TASK
+
+// --- SIGN UP FOR TASK
     // Assigns task to user(participant) in task_assignment table
 
 
@@ -49,5 +78,6 @@ async function createTask(taskList,eventID){
 module.exports= {
     listEvents,
     createEvent,
-    createTask
+    createTask,
+    displayAllEvents
 }

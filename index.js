@@ -146,13 +146,17 @@ app.get('/profile', (req, res) => {
     })
 });
 
+
+// --- BROWSE EVENTS
 // List All Events - PAGE
 app.get('/profile/listevents', async (req, res) =>{
-    const allEvents = await events.listEvents();
-    console.log(allEvents);
-    res.send(allEvents);
+    const displayAllEvents = await events.displayAllEvents();
+    // console.log(allEvents);
+    // res.send(allEvents);
 });
 
+// --- CREATE AN EVENT
+// < STEP 1 >
 // Create An Event - PAGE
 app.get('/profile/createevent', async (req, res) => {
     res.render('createEvent')
@@ -172,8 +176,8 @@ app.post('/profile/createevent', parseForm, async (req, res) => {
     }
 })
 
+// < STEP 2 > 
 // Create Event Task - PAGE
-
 app.get('/profile/createevent/:eventID(\\d+)/createtask', async (req, res) => {
     res.render('createTask');
 });
@@ -196,7 +200,7 @@ app.post('/profile/createevent/:eventID(\\d+)/createtask', parseForm, async (req
 
 
 
-// View Your Events
+// --- VIEW YOUR EVENTS
 
 
 
