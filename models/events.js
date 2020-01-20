@@ -9,12 +9,8 @@ async function listEvents(){
 }
 
 // Format Events for User
-async function displayAllEvents() {
-    const allEvents = await listEvents();
-    for (event of allEvents) {
-        console.log(event.event_name);
-    }
-}
+
+
 
 
 
@@ -73,11 +69,26 @@ async function createTask(taskList,eventID){
 // --- SIGN UP FOR TASK
     // Assigns task to user(participant) in task_assignment table
 
+async function assignTask(taskID,userID){
+        const result = await db.one(`
+            insert into tasks
+                (taskID, userID)
+            values ($1, $2)
+            returning task_id
+        `, [task, eventID]);
+    
+        console.log(`task_id = ${result.task_id}`)
+        // return result.task_id;
+}
+
+
+
+
 
 // EXPORTS
 module.exports= {
     listEvents,
     createEvent,
     createTask,
-    displayAllEvents
+    // displayAllEvents
 }
