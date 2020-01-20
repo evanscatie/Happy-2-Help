@@ -150,12 +150,15 @@ app.get('/profile', (req, res) => {
 // --- BROWSE EVENTS
 // List All Events - PAGE
 app.get('/profile/listevents', async (req, res) => {
-    // const allEvents = await events.listEvents();
     const allEvents = await events.listEvents();
     console.log('events -----');
     console.log(allEvents)
-    res.json(allEvents);
-})
+    res.render('browseEvents', {
+        locals: {
+            allEvents: allEvents
+        }
+    })
+});
 
 // --- CREATE AN EVENT
 // < STEP 1 >
@@ -204,10 +207,11 @@ app.post('/profile/createevent/:eventID(\\d+)/createtask', parseForm, async (req
 
 
 // --- SIGN UP FOR TASK
-
+app.get('/profile/:userID(\\d+)/createtask', async (req, res) => {
+    res.render('viewYourEvents');
+});
 
 // --- VIEW YOUR EVENTS
-
 
 
 

@@ -3,32 +3,13 @@ const db = require('./connection');
 // --- LIST ALL EVENTS (Browse Events)
 async function listEvents(){
     const allEvents = await db.any(`
-    select * from events`);
+    select event_name, event_location, event_date, event_time, event_description, user_id from events`);
     console.log(allEvents); 
     return allEvents;
 }
 
 // Format Events for User
 
-
-
-
-
-
-
-// async function userLogin(username, password) {
-//     const theUser = await getByUsername(username);
-//     return {
-//         isUserValid: bcrypt.compareSync(password, theUser.password), 
-//         theUser
-//     }
-// };
-// async function getByUsername(username) {
-//     const theUser = await db.one(`
-//         select * from users where user_name=$1
-//     `, [username]);
-//     return theUser;
-// };
 
 
 
@@ -90,5 +71,4 @@ module.exports= {
     listEvents,
     createEvent,
     createTask,
-    // displayAllEvents
 }
