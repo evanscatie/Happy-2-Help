@@ -32,6 +32,6 @@ create TABLE tasks (
 
 create TABLE task_assignment (
     task_assignment_id serial PRIMARY key,
-    task_id INTEGER REFERENCES tasks (tasks_id) NOT NULL,
+    task_id INTEGER REFERENCES tasks (task_id) NOT NULL,
     user_id INTEGER REFERENCES users (user_id) NOT NULL 
 );
