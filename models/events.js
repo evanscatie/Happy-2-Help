@@ -3,12 +3,37 @@ const db = require('./connection');
 // --- LIST ALL EVENTS (Browse Events)
 async function listEvents(){
     const allEvents = await db.any(`
-    select event_name, event_location, event_date, event_time, event_description, user_id from events`);
+    select * from events`);
     console.log(allEvents); 
     return allEvents;
 }
 
+
 // Format Events for User
+
+
+// -- RETRIEVE ONE EVENT 
+async function oneEvent(eventID) {
+    try {
+        const oneEvent = await db.one(`select * from events where event_id=$1`, [eventID]);
+        console.log(`event_id = ${oneEvent.event_id}`)
+        return oneEvent;
+    } catch (err) {
+        return null;
+    }
+}
+
+
+// --- RETRIEVE EVENT TASK INFO
+async function getTasks(eventID) {
+    try {
+        const tasksForEvent = await db.any(`select * from tasks where event_id=$1`, [eventID]);
+        console.log(`tasksForEvent = ${tasksForEvent}`)
+        return tasksForEvent;
+    } catch (err) {
+        return null;
+    }
+}
 
 
 
@@ -43,24 +68,28 @@ async function createTask(taskList,eventID){
     }
 }
 
+// --- ASSIGN TASK TO USER
+async function assignUserToTask(taskID,userID){
+    const result = await db.one(`
+        insert into task_assignment
+            (task_id, user_id)
+        values ($1, $2)
+        returning *
+    `, [taskID, userID]);
+    console.log('Task is assigned to user:')
+    console.log(result)
+    return result
+}
+ 
+
+
+
+
+
 // --- VIEW YOUR EVENTS
 
 
 
-// --- SIGN UP FOR TASK
-    // Assigns task to user(participant) in task_assignment table
-
-async function assignTask(taskID,userID){
-        const result = await db.one(`
-            insert into tasks
-                (taskID, userID)
-            values ($1, $2)
-            returning task_id
-        `, [task, eventID]);
-    
-        console.log(`task_id = ${result.task_id}`)
-        // return result.task_id;
-}
 
 
 
@@ -71,4 +100,7 @@ module.exports= {
     listEvents,
     createEvent,
     createTask,
+    oneEvent,
+    getTasks,
+    assignUserToTask
 }

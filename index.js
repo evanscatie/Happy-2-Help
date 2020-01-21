@@ -149,7 +149,7 @@ app.get('/profile', (req, res) => {
 
 // --- BROWSE EVENTS
 // List All Events - PAGE
-app.get('/profile/listevents', async (req, res) => {
+app.get('/profile/browseEvents', async (req, res) => {
     const allEvents = await events.listEvents();
     console.log('events -----');
     console.log(allEvents)
@@ -159,6 +159,36 @@ app.get('/profile/listevents', async (req, res) => {
         }
     })
 });
+
+
+
+// --- VIEW A SINGLE EVENT & ITS TASKS
+
+app.post('/profile/browseEvents', parseForm, async (req, res) => {
+    console.log('you want to get by id');
+    // show me a single event by their id
+    const {eventID, eventName} = req.body;
+    const oneEvent = await events.oneEvent(eventID);
+    res.redirect(`/profile/browseEvents/${eventID}/${eventName}`)
+});
+
+
+
+app.get('/profile/browseEvents/:eventID(\\d+)/:eventName', async (req, res) => {
+    const {eventID, eventName} = req.params;
+    const tasksForEvent = await events.getTasks(eventID);
+    console.log('tasks -----');
+    console.log(tasksForEvent)
+    res.render('viewEventTasks', {
+        locals: {
+            tasksForEvent,
+            eventName,
+            eventID
+        }
+    })
+});
+ 
+
 
 // --- CREATE AN EVENT
 // < STEP 1 >
@@ -204,12 +234,16 @@ app.post('/profile/createevent/:eventID(\\d+)/createtask', parseForm, async (req
 
 
 
-
-
 // --- SIGN UP FOR TASK
-app.get('/profile/:userID(\\d+)/createtask', async (req, res) => {
-    res.render('viewYourEvents');
+app.post('/profile/browseEvents/:eventID(\\d+)/:eventName', parseForm, async (req, res) => {
+    console.log('assigning user to task');
+    const userID = req.session.user.id;
+    const {taskID, eventID, eventName} = req.body;
+
+    const assignUserToTask = await events.assignUserToTask(taskID, userID);
+    res.redirect(`/profile/browseEvents/${eventID}/${eventName}`)
 });
+
 
 // --- VIEW YOUR EVENTS
 
