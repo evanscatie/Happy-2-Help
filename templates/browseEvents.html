@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    <div>
+   
+        <h1 class="text-center">Browse Events</h1>
+        ${allEvents.map(item => 
+            `
+            <form class="browse" method="POST" >
+                <input name="eventID" value="${item.event_id}" hidden>
+                <input name="eventName" value="${item.event_name}" hidden>
+                <div class="card text-center col-md-6">
+                <div class="card-header bg-transparent">
+                    ${item.event_description}
+                </div>
+                    <h5>
+                        Location:
+                    </h5> 
+                        <p>
+                            ${item.event_location}
+                        </p>
+                        <br>
+                    <h5>
+                        Time:
+                    </h5>
+                        <p>
+                            ${item.event_time}
+                        </p>
+                        <br>
+                    <h5>
+                        Despcription:
+                    </h5> 
+                        <p>
+                            ${item.event_description}
+                        </p>
+                    </p>
+                    <input class=button type="submit"class="btn btn-primary" value='View Event'/>
+                        </div>
+            <br>
+            </form>
+            `
+            ).join('')}
+    </div>
+</body>
+</html>
