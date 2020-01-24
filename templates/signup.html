@@ -4,59 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
-<body>
-  <!-- Error Handling Message -->
-  <p class="error-msg">
-    ${errorMsg}
-  </p>
-  <form method="POST">
-    <label>
-      First Name:
-      <input name="firstName">
-    </label>
-    <br>
-
-    <label>
-      Last Name:
-      <input name="lastName">
-    </label>
-    <br>
-
-    <label>
-      Organization:
-      <input name="organization" type="text">
-    </label>
-    <br>
-
-    <label>
-      Email:
-        <input name="email" type="text">
-    </label>
-    <br>
-
-    <label>
-      Phone Number:
-      <input type="text" name="phoneNumber">
-    </label>
-    <br>
-
-    <label>
-      Username:
-      <input type="username" name="username" required>
-    </label>
-    <br>
+<body id="bootstrap-overrides">
+  
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="/images/happy2help-logo.png" id="icon" alt="User Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      
     
-    <label>
-      Password:
-      <input type="password" name="password"  required >
-    </label>
-    <br>
-
-    <input type="submit" value="login" >
-
-  </form>
-    
+        <form method="POST">
+          <div class="fadeIn second">
+            <h1 class="h2">Create An Account</h1>
+            <p class="form-text text-muted">Please fill in this form to create an account</p>
+          </div>
+          <div class="form-row fadeIn second ">
+            <div class="form-group col-md-6">
+              <input name="username" type="text" class="form-control" placeholder="Username">
+            </div>
+            <div class="form-group col-md-6">
+              <input name="password" type="text" class="form-control" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-row fadeIn third ">
+            <div class="form-group col-md-6">
+              <input name="firstName" type="text" class="form-control" placeholder="First Name">
+            </div>
+            <div class="form-group col-md-6">
+              <input name="lastName" type="text" class="form-control" placeholder="Last Name">
+            </div>
+          </div>
+          <div class="form-group fadeIn fourth">
+            <input name="email" type="text" class="form-control" placeholder="Email">
+          </div>
+          <div class="form-group fadeIn fourth">
+            <input name="organization" type="text" class="form-control" placeholder="Organization">
+          </div>
+          <div class="form-group fadeIn fifth">
+            <input name="phoneNumber" type="text" class="form-control" placeholder="Phone Number">
+          </div>
+          <input type="submit" class="btn btn-style fadeIn sixth" value="Sign Up">
+          <p>
+            ${errorMsg}
+          </p>
+        </form>
+  
+    </div>
+  </div>
+  
 </body>
 </html>
