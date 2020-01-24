@@ -4,28 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+
     <title>Document</title>
 </head>
-<body>
-    <!-- Home Title -->
-    <h1>this is a simple landing page</h1>
-    <!-- Signup Button -->
-    <a href="/signup"> 
-        <button>
-            SIGNUP
-        </button>
-    </a>
-    <br>
-    <!-- Login Button -->
-    <a href="/login"> 
-        <button>
-            LOGIN
-        </button>
-    </a>
-    <!-- Error Handling Message -->
-    <p>
-        ${errorMsg}
-    </p>
+<body id="bootstrap-overrides">
+   
+
+    <header class="masthead">
+    <!-- NAVBAR -->
+        <nav class="navbar  sticky-top navbar-expand-lg navbar-light bg-transparent">
+            <a class="navbar-brand" href="#">
+                <img class="nav-icon" src="" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end">
+                <ul class="navbar-nav navbar-right">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </ul>
+            </div>
+        </nav>
+    <!-- BANNER -->
+        <div class="container h-100">
+          <div class="row h-100 align-items-center">
+            <div class="col-12 text-center">
+              <h1 class="font-weight-light">happy 2 help</h1>
+              <p class="lead">An app to help us help you help meee</p>
+              <div>
+                <!-- Signup Button -->
+                <a href="/signup"> 
+                    <button class="btn btn-outline-dark">
+                        SIGNUP
+                    </button>
+                </a>
+          
+                <!-- Login Button -->
+                <a href="/login"> 
+                    <button class="btn btn-outline-dark">
+                        LOGIN
+                    </button>
+                </a>
+                <!-- Error Handling Message -->
+                <p>
+                    ${errorMsg}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      
+      <!-- ABOUT -->
+      <section class="py-5">
+        <div class="container">
+          <h2 class="font-weight-light">Page Content</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.</p>
+        </div>
+      </section>
+
 
 </body>
 </html>

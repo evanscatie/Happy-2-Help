@@ -101,7 +101,7 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/login', parseForm, async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password} = req.body;
     console.log(req.body);
 
     try { // try: checks if username has match in db
