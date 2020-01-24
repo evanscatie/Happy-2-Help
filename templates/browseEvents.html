@@ -9,49 +9,45 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 class="text-center">Browse Events</h1>
+    <div>
+   
+        <h1 class="text-center">Browse Events</h1>
         ${allEvents.map(item => 
             `
-            <form method="POST" >
+            <form class="browse" method="POST" >
                 <input name="eventID" value="${item.event_id}" hidden>
                 <input name="eventName" value="${item.event_name}" hidden>
-                <div class="row card-row justify-content-center p">
-                    <div class="card text-center col-md-6">
-                        <div class="card-header bg-transparent">
-                            ${item.event_description}
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                 ${item.event_description}
-                            </h5>
-                            <p class="card-text overflow-auto">
-                                <h5>
-                                    Location:
-                                </h5> 
-                                <p>
-                                    ${item.event_location}
-                                </p>
-                                <br>
-                                <h5>
-                                    Despcription:
-                                </h5> 
-                                <p>
-                                    ${item.event_description}
-                                </p>
-                            </p>
-                            <input type="submit"class="btn btn-primary" value='View Event'/>
-                          </div>
-                        </div>
-                    </div>
+                <div class="card text-center col-md-6">
+                <div class="card-header bg-transparent">
+                    ${item.event_description}
                 </div>
-                <br>
+                    <h5>
+                        Location:
+                    </h5> 
+                        <p>
+                            ${item.event_location}
+                        </p>
+                        <br>
+                    <h5>
+                        Time:
+                    </h5>
+                        <p>
+                            ${item.event_time}
+                        </p>
+                        <br>
+                    <h5>
+                        Despcription:
+                    </h5> 
+                        <p>
+                            ${item.event_description}
+                        </p>
+                    </p>
+                    <input class=button type="submit"class="btn btn-primary" value='View Event'/>
+                        </div>
+            <br>
             </form>
             `
             ).join('')}
     </div>
-  
-
-
 </body>
-
 </html>

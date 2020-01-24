@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet">    
+    <!-- <link rel="stylesheet" href="/stylesheets/style.css"> -->
+    <link rel="shortcut icon" href="/checkmark.jpeg" type="image/x-icon">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+    </nav>
+<body>
+    
+    ${allCreatorEvents.length > 0 ? (
+        `<h1 class="text-center">EVENTS YOU'VE CREATED</h1>` +
+        allCreatorEvents.map(item => 
+        `
+        <div>
+            <div class="row card-row justify-content-center">
+                <div class="col-sm-6">
+                    <div class="card text-center">
+                        <h5 class="card-header">
+                            <input name="eventName" class="edit text-center border-0 bg-transparent" type="text" value="${item.event_name}">
+                        </h5>
+                            <div class="card-body">
+                            <form class="form" method="POST">
+                            <p class="card-text overflow-auto">
+                                <h5>
+                                    Location:
+                                </h5> 
+                                <p>
+                                    <input name="eventLocation" class="edit text-center" type="text" value="${item.event_location}" disabled>
+                                </p>
+                                <br>
+                                <h5>
+                                    Despcription:
+                                </h5> 
+                                <p>
+                                    <input name="eventDescription" class="edit text-center" type="text" value="${item.event_description}" disabled>
+                                </p>
+                
+                                    <input name="taskID" value="${item.task_id}" hidden>
+                                    <input value="${item.event_description}" hidden> 
+                                    <input  name="task_action" type="hidden" value="edit">
+                                    <p>
+
+                                    </p>
+                                    <input class="editEvent btn btn-primary" type="button" href value='EDIT THIS EVENT'/>
+                                    <input type="submit" class="hidden" name="" id="">
+                                </form>
+                            </p>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+        </div>
+        <br>
+        `
+        ).join(''))
+        : ''
+    
+    }
+
+
+
+
+
+    ${formatParticipantEventCards.length > 0 ? (
+        `<h1 class="text-center">EVENTS YOU'RE ATTENDING</h1>` +
+  
+        formatParticipantEventCards.map(event => 
+            `
+            
+                <div class="row card-row justify-content-center">
+                    <div class="col-sm-6">
+                        <div class="card text-center">
+                            <h5 class="card-header">
+                                ${event.event_name}
+                            </h5>
+                            <div class="card-body"> 
+                                <ul class="list-group list-group-flush">
+                                    ${event.tasks.map(task => `
+                                        <li class="list-group-item">
+                                            <form method="POST">
+                                                ${task.task}
+                                                <br>
+                                                <input name="taskID" type="" value="${task.task_id}" hidden/>
+                                                <br>
+                                                <input  name="task_action" type="hidden" value="delete">
+                                                <input class="btn btn-primary" type="submit" value="remove" />
+                                            </form>
+                                        </li>
+                                        
+                                    ` ).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+            <br>
+                `).join(''))
+                : ''
+            
+          }
+    
+
+</body>
+
+
+<script>
+const allTheSubmits = document.querySelectorAll('.editEvent');
+console.log(allTheSubmits)
+allTheSubmits.forEach(button => {
+    button.addEventListener("click", (event) => {
+    button.value = "Save Changes!";
+    event.preventDefault()
+    button.type = 'submit';
+    const submit = button.parentElement.querySelector('.hidden')
+    console.log(submit)
+
+    submit.classList.remove('hidden')
+    button.classList.add('hidden')
+    const input = button.parentElement.querySelectorAll('.edit');
+
+    input.forEach(item => {
+        item.disabled = false 
+        item.setAttribute('style', 'background-color: #d8ebed')
+    })
+    console.log('I clicked the button!');
+
+    }) 
+
+    
+
+})
+
+
+
+</script>
+
+
+
+</html>
