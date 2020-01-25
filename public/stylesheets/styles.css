@@ -13,6 +13,45 @@
   background-repeat: no-repeat;
 }
 
+/* JUMBOTRON */
+.jumbotron {
+  padding-top: 80px;
+  padding-bottom: 10px;
+  /* color: white; */
+}
+
+.bg-color {
+  background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+
+}
+
+.line {
+  width: 75%;
+  height: 5px;
+  background-color: #36407C;
+}
+
+
+#bootstrap-overrides .action-card {
+  border: none;
+}
+
+.action-button {
+  width: 100%;
+}
+.action-card-deck {
+  padding: 15px;
+
+}
+
+.card-img-top {
+  width: 40%;
+  padding-bottom: 20px;
+  align-self: center;
+}
+
+
+
 /* Login Page */
 /* BASIC */
 html {
@@ -281,6 +320,11 @@ html {
     background-color: rgb(117, 209, 209);
     width: 30%;
   }
+
+  #bootstrap-overrides .action-btn {
+    width: 100%;
+  }
+  
 
  
 
