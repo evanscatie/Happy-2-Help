@@ -21,7 +21,8 @@
 }
 
 .bg-color {
-  background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+  background-color: #F5F8FD;
+  height: 100%;
 
 }
 
@@ -34,23 +35,32 @@
 
 #bootstrap-overrides .action-card {
   border: none;
+  padding-top: 25px;
 }
 
 .action-button {
   width: 100%;
 }
 .action-card-deck {
-  padding: 15px;
+  padding: 30px;
 
 }
 
 .card-img-top {
-  width: 40%;
+  width: 35%;
   padding-bottom: 20px;
   align-self: center;
 }
 
-
+#card-animation {
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+}
+#card-animation:hover {
+  top: -10px;
+  box-shadow:  0 6px 25px 10px #bdbcbc;
+}
 
 /* Login Page */
 /* BASIC */

@@ -261,43 +261,25 @@ app.post('/profile/viewMyEvents', parseForm, async (req, res) => {
 // < STEP 1 >
 // Create An Event - PAGE
 app.get('/profile/createevent', async (req, res) => {
-    res.render('createEvent')
+    res.render('wizard-build-profile')
 });
 
 // Create An Event - FORM
 app.post('/profile/createevent', parseForm, async (req, res) => {
     const userID = req.session.user.id;
-    const {eventName, eventLocation, eventDate, eventTime, eventDescription} = req.body;
+    const {eventName, eventLocation, eventDate, eventTime, eventDescription, taskList} = req.body;
+    console.log(taskList)
     try{
         console.log(req.body);
         const eventID = await events.createEvent(eventName, eventLocation, eventDate, eventTime, eventDescription, userID);
-        res.redirect(`/profile/createevent/${eventID}/createtask`)
-
+        const tasks = await events.createTask(taskList, eventID)
+        console.log(tasks)
+        res.render(`eventConfirmation`)
     } catch (err){
         console.log(err);
     }
 })
 
-// < STEP 2 > 
-// Create Event Task - PAGE
-app.get('/profile/createevent/:eventID(\\d+)/createtask', async (req, res) => {
-    res.render('createTask');
-});
-
-// Create A Task - FORM
-app.post('/profile/createevent/:eventID(\\d+)/createtask', parseForm, async (req, res) => {
-    const {eventID} = req.params;
-    const {taskList} = req.body;
-
-    try{
-     console.log(req.body);
-     const taskID = await events.createTask(taskList, eventID); 
-     res.render(`eventConfirmation`)
-
-    } catch (err){
-        console.log(err);
-    }
-})
 
 
 
