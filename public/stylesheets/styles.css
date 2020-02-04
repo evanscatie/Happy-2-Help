@@ -13,6 +13,55 @@
   background-repeat: no-repeat;
 }
 
+/* JUMBOTRON */
+.jumbotron {
+  padding-top: 80px;
+  padding-bottom: 10px;
+  /* color: white; */
+}
+
+.bg-color {
+  background-color: #F5F8FD;
+  height: 100%;
+
+}
+
+.line {
+  width: 75%;
+  height: 5px;
+  background-color: #36407C;
+}
+
+
+#bootstrap-overrides .action-card {
+  border: none;
+  padding-top: 25px;
+}
+
+.action-button {
+  width: 100%;
+}
+.action-card-deck {
+  padding: 30px;
+
+}
+
+.card-img-top {
+  width: 35%;
+  padding-bottom: 20px;
+  align-self: center;
+}
+
+#card-animation {
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+}
+#card-animation:hover {
+  top: -10px;
+  box-shadow:  0 6px 25px 10px #bdbcbc;
+}
+
 /* Login Page */
 /* BASIC */
 html {
@@ -281,6 +330,11 @@ html {
     background-color: rgb(117, 209, 209);
     width: 30%;
   }
+
+  #bootstrap-overrides .action-btn {
+    width: 100%;
+  }
+  
 
  
 
