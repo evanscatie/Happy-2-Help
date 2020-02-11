@@ -13,6 +13,8 @@ app.set('views', 'templates');
 app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname, 'public')));
 
+const multer = require('multer');
+const upload = multer({ dest: 'public/images/uploads'});
 
 const bodyParser = require('body-parser');
 const parseForm = bodyParser.urlencoded({
@@ -70,13 +72,14 @@ app.get('/signup', (req, res) => {
     });
 });
 
-app.post('/signup', parseForm, async (req, res) => {
+app.post('/signup', upload.single('avatar'), parseForm, async (req, res) => {
     const {firstName, lastName, organization, email, phoneNumber, username, password} = req.body;
+    const avatar = req.file.filename
     console.log(req.body);
     console.log(req.query.msg);
 
     try {
-        const userID = await user.createUser(firstName, lastName, organization, email, phoneNumber, username, password);
+        const userID = await user.createUser(avatar, firstName, lastName, organization, email, phoneNumber, username, password);
         res.redirect('/login')
        
     } catch (err) {
@@ -117,7 +120,8 @@ app.post('/login', parseForm, async (req, res) => {
             req.session.user= { // the user object is being created 
                 username: theUser.user_name,
                 id: theUser.user_id,
-                name: theUser.first_name
+                name: theUser.first_name,
+                avatar: theUser.avatar
 
             };
             console.log("hits req session")
@@ -157,7 +161,8 @@ app.get('/profile/browseEvents', async (req, res) => {
         console.log(allEvents)
         res.render('browseEvents', {
             locals: {
-                allEvents: allEvents
+                allEvents: allEvents,
+                avatar: req.session.user.avatar
             }
         })
     } catch (err) {
@@ -265,13 +270,15 @@ app.get('/profile/createevent', async (req, res) => {
 });
 
 // Create An Event - FORM
-app.post('/profile/createevent', parseForm, async (req, res) => {
+app.post('/profile/createevent', upload.single('eventImage'), parseForm, async (req, res) => {
     const userID = req.session.user.id;
     const {eventName, eventLocation, eventDate, eventTime, eventDescription, taskList} = req.body;
-    console.log(taskList)
+    const eventImage = req.file.filename
+    console.log(eventImage)
+    console.log(taskList)          
     try{
         console.log(req.body);
-        const eventID = await events.createEvent(eventName, eventLocation, eventDate, eventTime, eventDescription, userID);
+        const eventID = await events.createEvent(eventName, eventLocation, eventDate, eventTime, eventDescription, eventImage, userID);
         const tasks = await events.createTask(taskList, eventID)
         console.log(tasks)
         res.render(`eventConfirmation`)

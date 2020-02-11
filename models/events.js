@@ -121,13 +121,13 @@ async function deleteParticipantTask(taskID, userID) {
 // --- CREATE AN EVENT 
 // Step 1: Create Event Overview
     // Assigns event to user(creator) in events table
-async function createEvent(eventName, eventLocation, eventDate, eventTime, eventDescription, userID){
+async function createEvent(eventName, eventLocation, eventDate, eventTime, eventDescription, eventImage, userID){
     const result = await db.one(`
         insert into events
-            (event_name, event_location, event_date, event_time, event_description, user_id)
-        values ($1, $2, $3, $4, $5, $6)
+            (event_name, event_location, event_date, event_time, event_description, event_image, user_id)
+        values ($1, $2, $3, $4, $5, $6, $7)
         returning event_id
-    `, [eventName, eventLocation, eventDate, eventTime, eventDescription, userID]);
+    `, [eventName, eventLocation, eventDate, eventTime, eventDescription, eventImage, userID]);
 
     console.log(`event_id = ${result.event_id}`)
     return result.event_id;

@@ -23,13 +23,14 @@
       <!-- Login Form -->
       
     
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
           <div class="fadeIn second">
             <h1 class="h2">Create An Account</h1>
             <p class="form-text text-muted">Please fill in this form to create an account</p>
           </div>
           <div class="form-row fadeIn second ">
             <div class="form-group col-md-6">
+              <input type="file" name="avatar">
               <input name="username" type="text" class="form-control" placeholder="Username">
             </div>
             <div class="form-group col-md-6">

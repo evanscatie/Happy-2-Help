@@ -1,5 +1,6 @@
 create TABLE users (
     user_id serial PRIMARY key,
+    avatar text,
     first_name text,
     last_name text,
     organization_name text,
@@ -16,6 +17,7 @@ create TABLE events (
     event_date date,
     event_time time,
     event_description text,
+    event_image text,
     user_id INTEGER REFERENCES users(user_id) NOT NULL
     -- NOT NULL: Forces every event to have an user id, otherwise event cannot be created
 );

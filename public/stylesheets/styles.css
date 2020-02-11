@@ -46,7 +46,7 @@
 
 }
 
-.card-img-top {
+.profile-card-img {
   width: 35%;
   padding-bottom: 20px;
   align-self: center;
@@ -350,3 +350,30 @@ html {
     max-width: 450px;
   }
   
+
+  .collapse-content .fa.fa-heart:hover {
+    color: #f44336 !important;
+  }
+  .collapse-content .fa.fa-share-alt:hover {
+    color: #0d47a1 !important;
+  }
+
+  /* .card-img-top {
+    height: 100px;
+    width: 100px;
+  } */
+
+
+
+  .event-card{
+    width: 100%%;
+
+  }
+
+  .event-card-text {
+    font-size: 10px;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-bottom: 5px;
+
+  }
