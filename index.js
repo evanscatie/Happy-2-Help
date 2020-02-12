@@ -121,7 +121,8 @@ app.post('/login', parseForm, async (req, res) => {
                 username: theUser.user_name,
                 id: theUser.user_id,
                 name: theUser.first_name,
-                avatar: theUser.avatar
+                avatar: theUser.avatar,
+                organization: theUser.organization_name
 
             };
             console.log("hits req session")
@@ -162,7 +163,8 @@ app.get('/profile/browseEvents', async (req, res) => {
         res.render('browseEvents', {
             locals: {
                 allEvents: allEvents,
-                avatar: req.session.user.avatar
+                avatar: req.session.user.avatar,
+                organization: req.session.user.organization
             }
         })
     } catch (err) {
@@ -195,13 +197,17 @@ app.get('/profile/browseEvents/:eventID(\\d+)/:eventName', async (req, res) => {
 
     try {
         const tasksForEvent = await events.getTasks(eventID);
+        const oneEvent = await events.oneEvent(eventID);
+        console.log('&&&&&&&&')
+        console.log(oneEvent)
         console.log('tasks -----');
         console.log(tasksForEvent)
         res.render('viewEventTasks', {
             locals: {
                 tasksForEvent,
                 eventName,
-                eventID
+                eventID,
+                oneEvent
             }
         })
     } catch(err) {

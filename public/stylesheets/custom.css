@@ -14,6 +14,10 @@
     /* background-color:  rgba(250, 245, 245, 0.9); */
 }
 
+body {
+    background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+}
+
 
   .event-card-text {
     font-size: 13px;
@@ -52,6 +56,7 @@
       font-family: 'Work Sans', sans-serif;
       font-weight: 500;
       color: #36407C;
+      font-size: 25px;
     
 
   }
@@ -71,4 +76,17 @@
 
   .event-icon {
       fill: rgb(148, 146, 146);
+  }
+
+  /* Event Page */
+  .details-header {
+      font-size: 14px;
+  }
+
+  .volunteer-btn {
+      font-size: 10px;
+  }
+
+  .volunteer-title{
+      font-size: 14px;
   }

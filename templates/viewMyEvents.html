@@ -15,65 +15,76 @@
             display: none;
         }
     </style>
+    <link rel="stylesheet" href="/stylesheets/custom.css">
 </head>
 <nav>
         <a href="/">Home</a>
         <a href="/about">About</a>
     </nav>
 <body>
-    
-    ${allCreatorEvents.length > 0 ? (
-        `<h1 class="text-center">EVENTS YOU'VE CREATED</h1>` +
-        allCreatorEvents.map(item => 
-        `
-        <div>
-            <div class="row card-row justify-content-center">
-                <div class="col-sm-6">
-                    <div class="card text-center">
-                        <h5 class="card-header">
-                            <input name="eventName" class="edit text-center border-0 bg-transparent" type="text" value="${item.event_name}">
-                        </h5>
-                            <div class="card-body">
-                            <form class="form" method="POST">
-                            <p class="card-text overflow-auto">
-                                <h5>
-                                    Location:
-                                </h5> 
-                                <p>
-                                    <input name="eventLocation" class="edit text-center" type="text" value="${item.event_location}" disabled>
-                                </p>
-                                <br>
-                                <h5>
-                                    Despcription:
-                                </h5> 
-                                <p>
-                                    <input name="eventDescription" class="edit text-center" type="text" value="${item.event_description}" disabled>
-                                </p>
-                
-                                    <input name="taskID" value="${item.task_id}" hidden>
-                                    <input value="${item.event_description}" hidden> 
-                                    <input  name="task_action" type="hidden" value="edit">
-                                    <p>
+    <div class="container text-center">
+        <h1 class="text-center">EVENTS YOU'VE CREATED</h1>
+        <div class="container ">
+            <div class="row card-row justify-content-center ">
+                ${allCreatorEvents.length > 0 ? (
+                    allCreatorEvents.map(item => 
+                    `
+                <div class="col-sm-12 col-md-4 col-lg-4 d-flex align-items-stretch">
 
-                                    </p>
-                                    <input class="editEvent btn btn-primary" type="button" href value='EDIT THIS EVENT'/>
-                                    <input type="submit" class="hidden" name="" id="">
-                                </form>
+                    <div class="card event-card text-center ">
+
+                        <!-- Card content -->
+                        <div class="card-body event-body ">
+                      
+                          <!-- Avatar -->
+                      
+                          <!-- Content -->
+                          <div class="container">
+                      
+                            <!-- Title -->
+                            <h4 class="card-title mb-2 text-left event-title"> ${item.event_name}</h4>
+                            <!-- Subtitle -->
+                            <p class="card-text event-card-text text-left text-muted"> 
+                                <i class="mr-1 text-muted"><svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 512 512'><title>ionicons-v5-j</title><path class="event-icon" d='M258.9,48C141.92,46.42,46.42,141.92,48,258.9,49.56,371.09,140.91,462.44,253.1,464c117,1.6,212.48-93.9,210.88-210.88C462.44,140.91,371.09,49.56,258.9,48ZM385.32,375.25a4,4,0,0,1-6.14-.32,124.27,124.27,0,0,0-32.35-29.59C321.37,329,289.11,320,256,320s-65.37,9-90.83,25.34a124.24,124.24,0,0,0-32.35,29.58,4,4,0,0,1-6.14.32A175.32,175.32,0,0,1,80,259C78.37,161.69,158.22,80.24,255.57,80S432,158.81,432,256A175.32,175.32,0,0,1,385.32,375.25Z'/><path class="event-icon" d='M256,144c-19.72,0-37.55,7.39-50.22,20.82s-19,32-17.57,51.93C191.11,256,221.52,288,256,288s64.83-32,67.79-71.24c1.48-19.74-4.8-38.14-17.68-51.82C293.39,151.44,275.59,144,256,144Z'/></svg></i>
+                                organization
                             </p>
-                            </div>
+                            <p class="card-text text-muted event-card-text text-left"> 
+                                <i class="mr-1 text-muted"> <svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 512 512'><title>ionicons-v5-c</title><path class="event-icon" d='M256,64C150,64,64,150,64,256s86,192,192,192,192-86,192-192S362,64,256,64Z' style='fill:none;stroke:rgb(148, 146, 146);stroke-miterlimit:10;stroke-width:32px'/><polyline points='256 128 256 272 352 272' style='fill:none;stroke:rgb(148, 146, 146);stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/></svg></i>
+                                ${item.event_time}
+                            </p>
+                      
+                          </div>
+                      
                         </div>
-
-
-
+                      
+                        <!-- Card image -->
+                        <div class="view overlay justify-content-center">
+                          <img class="card-img-top event-card-img rounded-0" src="/images/uploads/${item.event_image}" alt="Card image cap">
+                          <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                          </a>
+                        </div>
+                      
+                        <!-- Card content -->
+                        <div class="card-body container">
+                      
+                         
+                      
+                            <!-- Text -->
+                            <p class="text-left event-desc text-muted" id="collapseContent"> ${item.event_description}</p>
+                            <hr>
+                                <input class="btn btn-primary view-event-btn editEvent" type="submit" value='Edit Event'/>
+                        </div>
                     </div>
                 </div>
+                `
+                ).join(''))
+                : ''
+                
+            }
         </div>
-        <br>
-        `
-        ).join(''))
-        : ''
-    
-    }
+    </div>
+</div>
 
 
 
