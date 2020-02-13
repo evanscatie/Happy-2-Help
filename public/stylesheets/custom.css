@@ -4,6 +4,12 @@
   } */
 
 
+   .nav-item {
+     padding-right: 20px;
+     padding-left: 20px;
+     padding-top: 10px;
+   }
+
   .event-card{
     /* width: 100%; */
     padding-left: 0;
@@ -16,7 +22,9 @@
 
 body {
     background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
+    font-family: 'Work Sans', sans-serif;
 }
+
 
 
   .event-card-text {
@@ -36,15 +44,17 @@ body {
 
   .event-card-img {
     width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: 0;
-    margin-right: 0;
-  }
+    height: 20vw;
+    /* min-height: 300px; */
+    object-fit: cover;
+    margin: 0;
+    padding: 0;
+    
+}
+  
 
   .view-event-btn {
-    margin-bottom: 0;
-    margin-top: 10px;
+    margin-bottom: 15px;
     background-color:  rgb(117, 209, 209);
     border: none;
     border-radius: 20px;
@@ -56,14 +66,11 @@ body {
       font-family: 'Work Sans', sans-serif;
       font-weight: 500;
       color: #36407C;
-      font-size: 25px;
+      font-size: 18px;
     
 
   }
 
-  .browse-page-container{
-    background-image: url('https://source.unsplash.com/BtbjCFUvBXs/1920x1080');
-}
 
   .event-body {
       padding-top: 20px;
@@ -71,6 +78,7 @@ body {
 
   .event-desc {
     font-size: 14px;
+    margin-bottom: 0px;
 
   }
 
@@ -89,4 +97,56 @@ body {
 
   .volunteer-title{
       font-size: 14px;
+  }
+
+  .view-tasks-btn {
+    background-color:  rgb(117, 209, 209);
+    border: none;
+    border-radius: 20px;
+    width: 80%;
+    font-size: 70%;
+  }
+
+  .rm-tasks-btn {
+    background-color: rgb(161, 0, 0);
+    border: none;
+    border-radius: 20px;
+    width: 100%;
+    font-size: 70%;
+  }
+
+  .events-container {
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 10px;
+  }
+
+  .task-text {
+      font-size: 14px;
+  }
+
+  .events-header {
+    font-size: 20px;
+    font-family: 'Work Sans', sans-serif;
+    color: rgb(167, 164, 164)
+  }
+
+  .event-desc-container {
+      padding: 10px;
+  }
+
+
+  @media only screen and (max-width: 1000px) {
+    .event-card-img {
+        width: 100%;
+        height: 35vh;
+        /* min-height: 300px; */
+        object-fit: cover;
+        margin: 0;
+        padding: 0;
+        
+    }
+
+    .action-btn{
+        font-size: 1px;
+    }
   }

@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="/stylesheets/styles.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
 
     <title>Document</title>
 </head>
@@ -17,8 +17,8 @@
     <!-- NAVBAR -->
   <div>
       <nav class="navbar  sticky-top navbar-expand-lg navbar-light bg-transparent">
-          <a class="navbar-brand" href="#">
-              <img class="nav-icon" src="" alt="">
+          <a class="navbar-brand" href="/">
+              <img class="nav-icon" height="50" width="50" src="/images/Black Circle with Utensils Restaurant Logo (6).png" alt="">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -40,8 +40,8 @@
 
       <div class="jumbotron jumbotron-fluid bg-transparent">
           <div class="container">
-            <h1 class="display-4">Welcome ${name}!</h1>
-            <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio doloribus quos, beatae consad amet?..</p>
+            <h1 class="profile-header">Welcome ${name}!</h1>
+            <p class="ml-2 mt-3">Get started helping your community!</p>
         </div>
     </div>
 </div>
@@ -50,31 +50,41 @@
     <!-- PROFILE OPTIONS -->
    
     <div class="bg-color">
-      <div class="card-deck action-card-deck">
-          <div class="card action-card" id="card-animation">
-            <img src="/images/sign-form.png" class="card-img-top profile-card-img" alt="...">
-            <div class="card-body">
-              <a class="btn btn-style action-btn" role="button" href="/profile/createevent"> 
-                  CREATE AN EVENT
-              </a>
+      <div class="container action-card-deck">
+        <div class="row justify-content-center">
+          <div class="col-sm-12 col-md-8 col-lg-4 mt-3 mb-3">
+            <div class="card action-card" id="card-animation">
+              <img src="/images/sign-form.png" class="card-img-top profile-card-img" alt="...">
+              <div class="card-body">
+                <a class="btn btn-style action-btn" role="button" href="/profile/createevent"> 
+                    CREATE AN EVENT
+                </a>
+              </div>
             </div>
           </div>
-          <div class="card action-card" id="card-animation">
-            <img src="/images/volunteer.png" class="card-img-top profile-card-img" alt="...">
-            <div class="card-body">
-              <a class="btn btn-style action-btn" role="button" href="/profile/browseEvents"> 
-                  VOLUNTEER
-              </a>
+          <div class="col-sm-12 col-md-8 col-lg-4 mt-3 mb-3" >
+            <div class="card action-card" id="card-animation">
+              <img src="/images/volunteer.png" class="card-img-top profile-card-img" alt="...">
+              <div class="card-body">
+                <a class="btn btn-style action-btn" role="button" href="/profile/browseEvents"> 
+                    VOLUNTEER
+                </a>
+              </div>
             </div>
           </div>
-          <div class="card action-card" id="card-animation">
-            <img src="/images/id.png" class="card-img-top profile-card-img" alt="...">
-            <div class="card-body">
-              <a class="btn btn-style action-btn" role="button" href="/profile/viewMyEvents"> 
-                  VIEW YOUR PROFILE
-              </a>
+          <div class="col-sm-12 col-md-8 col-lg-4 mt-3 mb-3">
+            <div class="card action-card" id="card-animation">
+              <img src="/images/id.png" class="card-img-top profile-card-img" alt="...">
+              <div class="card-body">
+                <a class="btn btn-style action-btn" role="button" href="/profile/viewMyEvents"> 
+                    VIEW YOUR PROFILE
+                </a>
+              </div>
             </div>
+
           </div>
+
+        </div>
       </div>
     </div>
    

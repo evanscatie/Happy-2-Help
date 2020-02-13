@@ -3,15 +3,16 @@ const bcrypt = require('bcryptjs')
 
 
 // --- CREATE A USER (Create) 
-async function createUser(avatar, firstName, lastName, organization, email, phoneNumber, userName, password) {
+// async function createUser(avatar, firstName, lastName, organization, email, phoneNumber, userName, password) {
+async function createUser(firstName, lastName, organization, email, phoneNumber, userName, password) {
     const hash = createHash(password); 
     const result = await db.one(`
         insert into users
-        (avatar, first_name, last_name, organization_name, email, phone_number, user_name, password)
+        (first_name, last_name, organization_name, email, phone_number, user_name, password)
         values
-        ($1, $2, $3, $4, $5, $6, $7, $8)    
+        ($1, $2, $3, $4, $5, $6, $7)    
         returning user_id
-    `, [avatar, firstName, lastName, organization, email, phoneNumber, userName, hash]);
+    `, [firstName, lastName, organization, email, phoneNumber, userName, hash]);
     
     console.log(`user_id = ${result.user_id}`)
     return result.user_id;

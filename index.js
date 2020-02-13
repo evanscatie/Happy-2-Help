@@ -72,14 +72,17 @@ app.get('/signup', (req, res) => {
     });
 });
 
-app.post('/signup', upload.single('avatar'), parseForm, async (req, res) => {
+app.post('/signup', parseForm, async (req, res) => {
     const {firstName, lastName, organization, email, phoneNumber, username, password} = req.body;
-    const avatar = req.file.filename
+    // const avatar = req.file.filename
     console.log(req.body);
     console.log(req.query.msg);
 
     try {
-        const userID = await user.createUser(avatar, firstName, lastName, organization, email, phoneNumber, username, password);
+        // const userID = await user.createUser(avatar, firstName, lastName, organization, email, phoneNumber, username, password);
+        const userID = await user.createUser(firstName, lastName, organization, email, phoneNumber, username, password);
+
+
         res.redirect('/login')
        
     } catch (err) {
@@ -255,16 +258,16 @@ app.post('/profile/viewMyEvents', parseForm, async (req, res) => {
     taskID = parseInt(taskID)
     
     console.log(req.body.task_action)
-    if (req.body.task_action === 'edit') {
-        console.log('updating events =============')
-        updateEvent = events.updateEvent(eventName, eventLocation, eventDate, eventTime, eventDescription, userID)
-        res.redirect('/profile/viewMyEvents')
-    } else {
+    // if (req.body.task_action === 'edit') {
+    //     console.log('updating events =============')
+    //     updateEvent = events.updateEvent(eventName, eventLocation, eventDate, eventTime, eventDescription, userID)
+    //     res.redirect('/profile/viewMyEvents')
+    // } else {
         console.log('about to delete')
         events.deleteParticipantTask(taskID, userID);
         console.log('Task Deleted -----');
         res.redirect('/profile/viewMyEvents')
-    }
+    // }
 })
 
 

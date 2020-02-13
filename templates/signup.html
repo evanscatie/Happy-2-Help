@@ -11,7 +11,26 @@
     <title>Document</title>
 </head>
 <body id="bootstrap-overrides">
-  
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+    <a class="navbar-brand" href="/">
+      <img height="50" width="50" src="/images/Black Circle with Utensils Restaurant Logo (6).png">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            <li class="nav-item">
+                <a class="nav-link" href="/logout">Logout</a>
+        </ul>
+    </div>
+</nav>
   <div class="wrapper fadeInDown col-sm-12">
     <div id="formContent">
   
@@ -23,14 +42,16 @@
       <!-- Login Form -->
       
     
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST" >
           <div class="fadeIn second">
             <h1 class="h2">Create An Account</h1>
             <p class="form-text text-muted">Please fill in this form to create an account</p>
           </div>
+          <!-- <div class="form-group fadeIn second container">
+            <input type="file" name="avatar">
+          </div> -->
           <div class="form-row fadeIn second ">
             <div class="form-group col-md-6">
-              <input type="file" name="avatar">
               <input name="username" type="text" class="form-control" placeholder="Username">
             </div>
             <div class="form-group col-md-6">

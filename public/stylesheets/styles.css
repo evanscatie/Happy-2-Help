@@ -6,6 +6,7 @@ body {
 .nav-item {
   padding-right: 20px;
   padding-left: 20px;
+  padding-top: 10px;
 }
 /* BANNER */
 .masthead {
@@ -16,7 +17,14 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+ .home-logo {
+   height: 60%;
+ }
 
+ .home-btn {
+   width: 200px;
+   margin-top: 20px;
+ }
 /* JUMBOTRON */
 .jumbotron {
   padding-top: 80px;
@@ -25,7 +33,7 @@ body {
 }
 
 .bg-color {
-  background-color: #F5F8FD;
+  background-color: rgb(246,246,246);
   height: 100%;
 
 }
@@ -51,6 +59,7 @@ body {
 }
 .action-card-deck {
   padding: 30px;
+  
 
 }
 
@@ -58,6 +67,7 @@ body {
   width: 35%;
   padding-bottom: 20px;
   align-self: center;
+  filter: contrast(-200%);
 }
 
 #card-animation {
@@ -70,11 +80,16 @@ body {
   box-shadow:  0 6px 25px 10px #bdbcbc;
 }
 
+.profile-header {
+  font-family: 'Work Sans', sans-serif;;
+  font-size: 60px;
+  color:  rgb(167, 164, 164);
+  text-shadow: 0 4px 8px 0 rgba(0, 0, 0)
+}
+
 /* Login Page */
 /* BASIC */
-html {
-    /* background-color: #56baed; */
-  }
+
   
   body {
    font-family: 'Work Sans', sans-serif;;
@@ -110,7 +125,7 @@ html {
     justify-content: center;
     width: 100%;
     min-height: 100%;
-    padding: 20px;
+    /* padding: 20px; */
   }
   
   #formContent {

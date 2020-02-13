@@ -49,7 +49,7 @@ async function listCreatorEvents(userID){
 // --- RETRIEVE USERS TASKS AND THEIR EVENTS(PARTICIPANT)
 async function listParticipantTasks(userID) {
     try {
-        const allParticipantTasks = await db.any(`SELECT distinct events.event_id, events.event_name, events.event_description
+        const allParticipantTasks = await db.any(`SELECT distinct events.event_id, events.event_name, events.event_description, events.event_time, events.event_date, events.event_image
         FROM task_assignment
         INNER JOIN tasks ON tasks.task_id = task_assignment.task_id
         INNER JOIN events ON events.event_id = tasks.event_id
