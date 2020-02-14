@@ -290,7 +290,7 @@ app.post('/profile/createevent', upload.single('eventImage'), parseForm, async (
         const eventID = await events.createEvent(eventName, eventLocation, eventDate, eventTime, eventDescription, eventImage, userID);
         const tasks = await events.createTask(taskList, eventID)
         console.log(tasks)
-        res.render(`eventConfirmation`)
+        res.redirect(`/profile`)
     } catch (err){
         console.log(err);
     }

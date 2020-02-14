@@ -42,6 +42,7 @@
 
 body {
   background-color: #E5E5E5;
+  font-family: 'Work Sans', sans-serif;
   color: #3C4858; }
   body.inverse {
     background: #333333; }
@@ -56,6 +57,7 @@ body {
       background-color: initial;
       color: initial; }
 
+
 blockquote p {
   font-style: italic; }
 
@@ -63,9 +65,12 @@ blockquote p {
   background: #FFFFFF; }
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Work Sans', sans-serif;
   font-weight: 300;
+  color: rgb(167, 164, 164);
+  ;
   line-height: 1.5em; }
+  
 
 .serif-font {
   font-family: "Roboto Slab", "Times New Roman", serif; }

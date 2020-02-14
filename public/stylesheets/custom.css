@@ -93,6 +93,10 @@ body {
 
   .volunteer-btn {
       font-size: 10px;
+      background-color:  rgb(117, 209, 209);
+      border: none;
+      border-radius: 20px;
+
   }
 
   .volunteer-title{
