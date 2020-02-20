@@ -1,0 +1,143 @@
+/* .card-img-top {
+    height: 100px;
+    width: 100px;
+  } */
+
+.nav-item {
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-top: 10px;
+}
+
+.event-card {
+	/* width: 100%; */
+	padding-left: 0;
+	padding-right: 0;
+	margin: 30px;
+	border-radius: 15px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	/* background-color:  rgba(250, 245, 245, 0.9); */
+}
+
+body {
+	background-image: url("https://source.unsplash.com/BtbjCFUvBXs/1920x1080");
+	font-family: "Work Sans", sans-serif;
+}
+
+.event-card-text {
+	font-size: 13px;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 5px;
+}
+
+.browse-header {
+	margin: 50px;
+	font-family: "Work Sans", sans-serif;
+	font-weight: 400;
+	color: rgb(167, 164, 164);
+}
+
+.event-card-img {
+	width: 100%;
+	height: 20vw;
+	/* min-height: 300px; */
+	object-fit: cover;
+	margin: 0;
+	padding: 0;
+}
+
+.view-event-btn {
+	margin-bottom: 15px;
+	background-color: rgb(117, 209, 209);
+	border: none;
+	border-radius: 20px;
+	width: 70%;
+}
+
+.event-title {
+	text-transform: uppercase;
+	font-family: "Work Sans", sans-serif;
+	font-weight: 500;
+	color: #36407c;
+	font-size: 18px;
+}
+
+.event-body {
+	padding-top: 20px;
+}
+
+.event-desc {
+	font-size: 14px;
+	margin-bottom: 0px;
+}
+
+.event-icon {
+	fill: rgb(148, 146, 146);
+}
+
+/* Event Page */
+.details-header {
+	font-size: 14px;
+}
+
+.volunteer-btn {
+	font-size: 10px;
+	background-color: rgb(117, 209, 209);
+	border: none;
+	border-radius: 20px;
+}
+
+.volunteer-title {
+	font-size: 14px;
+}
+
+.view-tasks-btn {
+	background-color: rgb(117, 209, 209);
+	border: none;
+	border-radius: 20px;
+	width: 80%;
+	font-size: 70%;
+}
+
+.rm-tasks-btn {
+	background-color: rgb(161, 0, 0);
+	border: none;
+	border-radius: 20px;
+	width: 100%;
+	font-size: 70%;
+}
+
+.events-container {
+	background-color: rgba(255, 255, 255, 0.5);
+	border-radius: 10px;
+}
+
+.task-text {
+	font-size: 14px;
+}
+
+.events-header {
+	font-size: 20px;
+	font-family: "Work Sans", sans-serif;
+	color: rgb(167, 164, 164);
+}
+
+.event-desc-container {
+	padding: 10px;
+}
+
+@media only screen and (max-width: 1000px) {
+	.event-card-img {
+		width: 100%;
+		height: 35vh;
+		/* min-height: 300px; */
+		object-fit: cover;
+		margin: 0;
+		padding: 0;
+	}
+
+	.action-btn {
+		font-size: 1px;
+	}
+}

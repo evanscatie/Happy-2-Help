@@ -1,76 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="/stylesheets/styles.css">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link
+			href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			rel="stylesheet"
+			id="bootstrap-css"
+		/>
+		<link rel="stylesheet" href="/stylesheets/styles.css" />
+		<title>Document</title>
+	</head>
 
-    <title>Document</title>
-</head>
-<body id="bootstrap-overrides">
-   
+	<body id="bootstrap-overrides">
+		<header class="masthead">
+			<!-- NAVBAR -->
+			<nav
+				class="navbar  sticky-top navbar-expand-lg navbar-light bg-transparent"
+			>
+				<a class="navbar-brand" href="#">
+					<img
+						height="50"
+						width="50"
+						src="/images/Black Circle with Utensils Restaurant Logo (6).png"
+					/>
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse justify-content-end">
+					<ul class="navbar-nav navbar-right">
+						<li class="nav-item active">
+							<a class="nav-link" href="#"
+								>Home<span class="sr-only">(current)</span></a
+							>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">About</a>
+						</li>
 
-    <header class="masthead">
-    <!-- NAVBAR -->
-        <nav class="navbar  sticky-top navbar-expand-lg navbar-light bg-transparent">
-            <a class="navbar-brand" href="#">
-                <img class="nav-icon" src="" alt="">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end">
-                <ul class="navbar-nav navbar-right">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
-                </ul>
-            </div>
-        </nav>
-    <!-- BANNER -->
-        <div class="container h-100">
-          <div class="row h-100 align-items-center">
-            <div class="col-12 text-center">
-              <h1 class="font-weight-light">happy 2 help</h1>
-              <p class="lead">An app to help us help you help meee</p>
-              <div>
-                <!-- Signup Button -->
-                <a href="/signup"> 
-                    <button class="btn btn-outline-dark">
-                        SIGNUP
-                    </button>
-                </a>
-          
-                <!-- Login Button -->
-                <a href="/login"> 
-                    <button class="btn btn-outline-dark">
-                        LOGIN
-                    </button>
-                </a>
-                <!-- Error Handling Message -->
-                <p>
-                    ${errorMsg}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-      
-      <!-- ABOUT -->
-      <section class="py-5">
+						<li class="nav-item">
+							<a class="nav-link" href="/logout">Logout</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<!-- BANNER -->
+			<div class="container h-100">
+				<div class="row h-100 justify-content-center">
+					<div class="col-md-8 text-center">
+						<img class="home-logo" src="/images/happy2help-logo.png" alt="" />
+						<p class="lead">
+							Create events, volunteer, and begin helping your community!
+						</p>
+						<div>
+							<!-- Signup Button -->
+							<a href="/signup">
+								<button class="btn btn-outline-dark home-btn">
+									SIGNUP
+								</button>
+							</a>
+							<!-- Login Button -->
+							<a href="/login">
+								<button class="btn btn-outline-dark home-btn">
+									LOGIN
+								</button>
+							</a>
+							<!-- Error Handling Message -->
+							<p>
+								${errorMsg}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Will Add Later -->
+		<!-- ABOUT -->
+		<!-- <section class="py-5">
         <div class="container">
-          <h2 class="font-weight-light">Page Content</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus ab nulla dolorum autem nisi officiis blanditiis voluptatem hic, assumenda aspernatur facere ipsam nemo ratione cumque magnam enim fugiat reprehenderit expedita.</p>
+          <h2 class="lead">About</h2>
+          <p> Happy 2 Help is a web-based volunteer coordination system, enabling non-profit organizations and charities to create listings for upcoming events detailing what activities they’ll need volunteers for. Volunteer users can browse a list of upcoming events and then sign up for the events and activities that they want to participate in.</p>
         </div>
-      </section>
-
-
-</body>
+      </section> -->
+	</body>
 </html>
