@@ -275,7 +275,7 @@ app.post('/profile/viewMyEvents', parseForm, async (req, res) => {
 // < STEP 1 >
 // Create An Event - PAGE
 app.get('/profile/createevent', async (req, res) => {
-    res.render('wizard-build-profile')
+    res.render('createEvent')
 });
 
 // Create An Event - FORM
