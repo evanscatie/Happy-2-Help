@@ -10,8 +10,7 @@
 </head>
 <body>
      <!-- NAVBAR -->
-    
-     <nav class="navbar  sticky-top navbar-expand-lg navbar-light bg-transparent">
+    <nav class="navbar  sticky-top navbar-expand-lg navbar-light bg-transparent">
         <a class="navbar-brand" href="#">
             <img class="nav-icon" src="" alt="">
         </a>
@@ -20,13 +19,13 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
-                  <li class="nav-item active">
-                      <a class="nav-link" href="/profile">Home<span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#">About</a>
-                  <li class="nav-item">
-                      <a class="nav-link" href="/logout">Logout</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/profile">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
             </ul>
         </div>
     </nav>
@@ -52,15 +51,9 @@
                         <i class="mr-1 text-muted"> <svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' viewBox='0 0 512 512'><title>ionicons-v5-c</title><path class="event-icon" d='M256,64C150,64,64,150,64,256s86,192,192,192,192-86,192-192S362,64,256,64Z' style='fill:none;stroke:rgb(148, 146, 146);stroke-miterlimit:10;stroke-width:32px'/><polyline points='256 128 256 272 352 272' style='fill:none;stroke:rgb(148, 146, 146);stroke-linecap:round;stroke-linejoin:round;stroke-width:32px'/></svg></i>
                         ${oneEvent.event_time}
                     </p>
-
                 </div>
-           
-                    
-
-
             </div>
         </div>
-  
     <div class="row justify-content-center conatiner mt-4 mb-4">
         <div class="col-sm-8">
             <div class="card ">
@@ -75,21 +68,19 @@
                         <input name="tasksForEvent" value="${tasksForEvent}" hidden>
                         <input name="eventID" value="${eventID}" hidden>
                         <input name="eventName" value="${eventName}" hidden>
-                        
-                            <div class="card-body ">
-                                <div class="row ">
-                                    <div class="col text-center">
-                                        <p class="card-title ">
-                                            ${item.task}
-                                        </p>
-                                    </div>
-                                    <div class="col">
-                                        <input type="submit"class="btn btn-primary volunteer-btn text-center" value='VOLUNTEER FOR THIS TASK'/>
-                                        
-                                    </div>
+                        <div class="card-body ">
+                            <div class="row ">
+                                <div class="col text-center">
+                                    <p class="card-title ">
+                                        ${item.task}
+                                    </p>
+                                </div>
+                                <div class="col">
+                                    <input type="submit"class="btn btn-primary volunteer-btn text-center" value='VOLUNTEER FOR THIS TASK'/>
+                                    
                                 </div>
                             </div>
-                       
+                        </div>
                     </form>
                     `
                     ).join('')}
@@ -98,9 +89,5 @@
         </div>
         <br>
     </div>
-
-
- 
-
 </body>
 </html>
