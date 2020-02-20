@@ -30,6 +30,7 @@ const fileStore = require('session-file-store')(session); // modified version of
 app.use(session({
     store: new fileStore({}),
     secret: '76260r57650fd743046561076' // must move into secure location
+    // See about using `dotenv` for storing this
 }));
 
 app.use((req, res, next) =>  {
@@ -168,7 +169,12 @@ app.get('/profile/browseEvents', async (req, res) => {
 
 
 // --- VIEW A SINGLE EVENT & ITS TASKS
-
+// Tiny nitpick: if it's a single event + associated tasks,
+// consider changing the route to something more descriptive like '/profile/event-details'
+// Question, should this be GET or POST?
+// It seems that the purpose of the POST is so that you can extract the id and the name.
+// The result of the db query for `events.oneEvent` isn't being used.
+// So, in the template, consider replacing each form with a link to `/profile/browseEvents/${eventID}/${eventName}`
 app.post('/profile/browseEvents', parseForm, async (req, res) => {
     console.log('viewing a single event');
     // show me a single event by their id
@@ -184,7 +190,8 @@ app.post('/profile/browseEvents', parseForm, async (req, res) => {
 });
 
 
-
+// Also, do you really need the name to be part of the route?
+// You could alternatively retrieve the event object by ID, giving you access to the name.
 app.get('/profile/browseEvents/:eventID(\\d+)/:eventName', async (req, res) => {
     const {eventID, eventName} = req.params;
 
@@ -246,6 +253,7 @@ app.post('/profile/viewMyEvents', parseForm, async (req, res) => {
     console.log(req.body.task_action)
     if (req.body.task_action === 'edit') {
         console.log('updating events =============')
+        // I think it's safe to remove the `updateEvent` variable, since it's unused.
         updateEvent = events.updateEvent(eventName, eventLocation, eventDate, eventTime, eventDescription, userID)
         res.redirect('/profile/viewMyEvents')
     } else {
